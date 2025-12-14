@@ -22,18 +22,19 @@ class Solution {
         //     tpw += waterlevel - height[i];
         // }
         // return tpw;
-        int left = 1;
+        int left = 0;
         int right = height.length - 1;
         int leftMax = height[0];
         int rightMax = height[height.length - 1];
+        //we have to take it globally since we wanna calculate the max trapped water    
         int sum = 0;
-        while(left <= right){
+        while(left <= right){ // sum = 3, lm = 2, l = 1
             if(leftMax <= rightMax){
                 leftMax = Math.max(height[left],leftMax);
-                sum += leftMax - height[left];
+                sum += leftMax - height[left];  // 2 - 0 = 2 , sum = 3 + 2 = 5,
                 left++;
             }else{
-                rightMax = Math.max(height[right], rightMax);
+                rightMax = Math.max(height[right], rightMax); // sum = 5, rm = 2, 2-1 = 1, sum = 5 + 1 = 6 which
                 sum += rightMax - height[right];
                 right--;
             }
