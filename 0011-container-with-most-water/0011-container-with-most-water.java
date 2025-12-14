@@ -1,22 +1,23 @@
 import java.util.*;
 class Solution {
     public int maxArea(int[] height) {
-    //2 Pointer approach
-    int maxWater = 0;
-    int lp = 0;
-    int rp = height.length-1;
+    //take two pointers left and right to reduce the time complexity
+    int left = 0 , right = height.length - 1;
+    int maxWater = 0;   // our answer
 
-    while(lp != rp){
-        int ht = Math.min(height[lp] , height[rp]);
-        int width = rp - lp;
-        int currWater = ht * width;
-        maxWater = Math.max(currWater, maxWater);
+    while( left != right){
+        int hi = Math.min(height[left] , height[right]);
+        int wi = right - left;
+        int area = hi * wi;
+        
+        //Update the maximum area of a container with most water if it does!
+        maxWater = Math.max(area, maxWater);
 
-        //pointer updatation
-        if( height[lp] < height[rp] ){
-            lp++;
+        //Update the pointers based on their minimum height
+        if( height[left] < height[right]){
+            left++;
         }else{
-            rp--;
+            right--;
         }
     }
 
