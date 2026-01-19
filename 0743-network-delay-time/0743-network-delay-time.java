@@ -3,7 +3,7 @@ class Solution {
         //create a graph represented as an adjacency list
         Map<Integer, List<int[]>> graph = new HashMap<>();
         for(int []edge : times){
-            graph.cmoputeIfAbsent(edge[0], x -> new ArrayList<>()).add(new int[]{edge[1] , edge[2]});
+            graph.computeIfAbsent(edge[0], x -> new ArrayList<>()).add(new int[]{edge[1] , edge[2]});
         } 
 
         //use a priorityQueue to select the node with the minimum distance
