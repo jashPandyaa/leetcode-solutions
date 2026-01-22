@@ -1,5 +1,6 @@
 class Solution {
     public int minimumPairRemoval(int[] nums) {
+        //BruteForce : Time comp - O(n ^ 3)
         List<Integer> list = new ArrayList<>();
         for (int num : nums) {
             list.add(num);
